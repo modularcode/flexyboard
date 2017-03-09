@@ -21,8 +21,22 @@ We're creating this project as a base for creating configurable dashboard layout
 
 ## ToDo
 
+### Near-term
+
+- Implement the lib
 - Publish on NPM
+- Default demo
+
+### Mid-term
+
 - Cover with tests
+- Add UMD/CommonJS/ES modules support
+- Add React component
+- Add Angular2 component
+
+### Long-term
+
+- Demo pages with different UI frameworks
 - Demo bootstrap
 - Demo material
 - Demo semantic-ui
