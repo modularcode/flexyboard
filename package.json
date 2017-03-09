@@ -4,7 +4,22 @@
   "description": "Super-flexible admin dashboard skeleton layout with Multisidebar, Fixed or scrollable Sidebar/Footer/Header, RTL, support",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":              "npm run build",
+    "start":            "npm run serve",
+    "serve":            "static -i demo/default/index.html",
+
+    "build":            "npm run build:lib && npm run build:demo",
+    "build:lib":        "npm run build:lib:js && npm run build:lib:sass",
+    "build:lib:js":     "copyfiles -f lib/main.js dist",
+    "build:lib:sass":   "node-sass lib/main.scss dist/main.css",
+    "build:demo":       "npm run build:demo:sass",
+    "build:demo:sass":  "node-sass -r demo/ -o demo/",
+
+    "test":             "echo \"Error: no test specified\" && exit 1",
+
+    "watch:lib:sass":   "nodemon -e scss -x \"npm run build:lib:sass\"",
+    "watch:lib:js":     "nodemon -e js -x \"npm run build:lib:js\"",
+    "watch:lib:test":   ""
   },
   "repository": {
     "type": "git",
@@ -26,5 +41,12 @@
   "bugs": {
     "url": "https://github.com/modularcode/flexyboard/issues"
   },
-  "homepage": "https://github.com/modularcode/flexyboard#readme"
+  "homepage": "https://github.com/modularcode/flexyboard#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "copyfiles": "^1.2.0",
+    "node-sass": "^4.5.0",
+    "node-static": "^0.7.9",
+    "nodemon": "^1.11.0"
+  }
 }

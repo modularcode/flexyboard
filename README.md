@@ -17,3 +17,14 @@ We're creating this project as a base for creating configurable dashboard layout
 - Sidebars might be hidden at certain screen widths
 - Content can be fixed (e.g. bootstrap .container) or fluid
 - Scrollable (non-fixed) sidebars can be sticked to content
+
+
+## ToDo
+
+- Publish on NPM
+- Cover with tests
+- Demo bootstrap
+- Demo material
+- Demo semantic-ui
+- Demo zurb
+- Demo facebook
