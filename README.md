@@ -1,5 +1,8 @@
-# flexyboard
-Super-flexible admin dashboard skeleton layout with Multisidebar, Fixed or scrollable Sidebar/Footer/Header, RTL, support
+# flexyboard (in progress)
+> Super-flexible admin dashboard skeleton layout with Multisidebar, Fixed or scrollable Sidebar/Footer/Header, RTL, support
+
+Creating a highly customizable layout is really tricky. 
+We're creating this project as a base for creating configurable dashboard layouts.
 
 ## Technical requirements
 
