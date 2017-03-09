@@ -221,6 +221,10 @@ $fboard-animation-timing-function: ease !default;
   &.-rtl {
     text-align: right;
 
+    .#{$header} {
+
+    }
+
     .#{$sidebar} {
       left: auto;
       right: 0;
@@ -230,6 +234,11 @@ $fboard-animation-timing-function: ease !default;
       right: auto;
       left: 0;
     }
+
+    .#{$footer} {
+
+    }
+
 
     &.-sidebar-collapsed {
       padding-right: 0;
