@@ -4,22 +4,21 @@
   "description": "Super-flexible admin dashboard skeleton layout with Multisidebar, Fixed or scrollable Sidebar/Footer/Header, RTL, support",
   "main": "index.js",
   "scripts": {
-    "dev":              "npm run build",
-    "start":            "npm run serve",
-    "serve":            "static -i demo/default/index.html",
+    "start": "concurrently \"npm run build\" \"npm run watch\" \"npm run serve\"",
+    "serve": "static -i demo/default/index.html",
+    "build": "concurrently \"npm run build:lib\" \"npm run build:demo\"",
+    "build:lib": "npm run build:lib:js && npm run build:lib:sass",
+    "build:lib:js": "copyfiles -f lib/flexyboard.js dist",
+    "build:lib:sass": "node-sass lib/flexyboard.scss dist/flexyboard.css",
+    "build:demo": "npm run build:demo:sass",
+    "build:demo:sass": "node-sass -r demo/ -o demo/",
+    "test": "echo \"Error: no test specified\" && exit 1",
 
-    "build":            "npm run build:lib && npm run build:demo",
-    "build:lib":        "npm run build:lib:js && npm run build:lib:sass",
-    "build:lib:js":     "copyfiles -f lib/flexyboard.js dist",
-    "build:lib:sass":   "node-sass lib/flexyboard.scss dist/flexyboard.css",
-    "build:demo":       "npm run build:demo:sass",
-    "build:demo:sass":  "node-sass -r demo/ -o demo/",
-
-    "test":             "echo \"Error: no test specified\" && exit 1",
-
-    "watch:lib:sass":   "nodemon -e scss -x \"npm run build:lib:sass\"",
-    "watch:lib:js":     "nodemon -e js -x \"npm run build:lib:js\"",
-    "watch:lib:test":   ""
+    "watch": "npm run watch:lib:sass",
+    "watch:lib:sass": "node-sass lib/flexyboard.scss dist/flexyboard.css -w lib/ -r",
+    "watch:lib:js": "",
+    "watch:lib:test": "",
+    "watch:demo": ""
   },
   "repository": {
     "type": "git",
@@ -44,9 +43,11 @@
   "homepage": "https://github.com/modularcode/flexyboard#readme",
   "dependencies": {},
   "devDependencies": {
+    "concurrently": "^3.4.0",
     "copyfiles": "^1.2.0",
     "node-sass": "^4.5.0",
     "node-static": "^0.7.9",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "watch": "^1.0.2"
   }
 }
