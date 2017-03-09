@@ -1,0 +1,30 @@
+{
+  "name": "flexyboard",
+  "version": "0.0.1",
+  "description": "Super-flexible admin dashboard skeleton layout with Multisidebar, Fixed or scrollable Sidebar/Footer/Header, RTL, support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modularcode/flexyboard.git"
+  },
+  "keywords": [
+    "layout",
+    "dashboard",
+    "admin",
+    "sidebar",
+    "multisidebar",
+    "fixed",
+    "scrollable",
+    "fluid",
+    "rtl"
+  ],
+  "author": "Gevorg Harutyunyan <modularcoder@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/modularcode/flexyboard/issues"
+  },
+  "homepage": "https://github.com/modularcode/flexyboard#readme"
+}
