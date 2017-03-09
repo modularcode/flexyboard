@@ -1,1 +1,65 @@
-@import '../../lib/flexyboard';
+@import '../../lib/flexyboard.scss';
+
+
+.block {
+  padding: 15px;
+}
+
+.body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+// Style flexyboard
+.flexyboard.demo {
+  background-color: #d7dde4;
+
+  & > * {
+    @extend .block;
+  }
+
+  .f-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ccc;
+  }
+
+  .f-sidebar {
+    background-color: #3a4651;
+    color: #fff;
+  }
+
+  .f-content {
+    p {
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+  .f-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+  }
+
+  .f-sidebar-secondary {
+    background-color: #9baabb;
+  }
+
+
+  &.rtl {
+    .f-header {
+      flex-direction: row-reverse;
+    }
+
+    .f-footer {
+      flex-direction: row-reverse;
+    }
+  }
+}

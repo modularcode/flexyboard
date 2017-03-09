@@ -1,3 +1,272 @@
-.test {
-  color: blue;
+// Flexyboard variables definition
+$fboard-classname: 'flexyboard' !default;
+$fboard-header-classname: 'f-header' !default;
+$fboard-footer-classname: 'f-footer' !default;
+$fboard-content-classname: 'f-content' !default;
+$fboard-sidebar-classname: 'f-sidebar' !default;
+$fboard-sidebar-secondary-classname: 'f-sidebar-secondary' !default;
+
+$fboard-header-height: 70px !default;
+$fboard-footer-height: 50px !default;
+$fboard-sidebar-width: 230px !default;
+$fboard-sidebar-secondary-width: 230px !default;
+
+$fboard-animation-duration: .3s !default;
+$fboard-animation-timing-function: ease !default;
+
+
+.#{$fboard-classname} {
+
+  // We're in local scope an may use more
+  // Readable variable names
+  $header:            #{$fboard-header-classname};
+  $footer:            #{$fboard-footer-classname};
+  $content:           #{$fboard-content-classname};
+  $sidebar:           #{$fboard-sidebar-classname};
+  $sidebar-secondary: #{$fboard-sidebar-secondary-classname};
+
+  $header-height:           $fboard-header-height;
+  $footer-height:           $fboard-footer-height;
+  $sidebar-width:           $fboard-sidebar-width;
+  $sidebar-secondary-width: $fboard-sidebar-secondary-width;
+
+  $animation-duration:        $fboard-animation-duration;
+  $animation-timing-function: $fboard-animation-timing-function;
+
+
+
+
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  left: 0;
+  top: 0;
+
+  padding-top: $header-height;
+  padding-right: $sidebar-secondary-width;
+  padding-bottom: $footer-height;
+  padding-left: $sidebar-width;
+
+  box-sizing: border-box;
+
+  & > * {
+    box-sizing: border-box;
+  }
+
+  .#{$header} {
+    position: absolute;
+    top: 0;
+    left: $sidebar-width;
+    right: $sidebar-secondary-width;
+    height: $header-height;
+  }
+
+  .#{$content} {
+    width: 100%;
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+  }
+
+  .#{$sidebar} {
+    position: absolute;
+    width: $sidebar-width;
+    top: $header-height;
+    left: 0;
+    bottom: $footer-height;
+  }
+
+  .#{$sidebar-secondary}  {
+    position: absolute;
+    width: $sidebar-width;
+    top: $header-height;
+    right: 0;
+    bottom: $footer-height;
+  }
+
+  .#{$footer} {
+    position: absolute;
+    bottom: 0;
+    left: $sidebar-width;
+    right: $sidebar-secondary-width;
+    height: $footer-height;
+  }
+
+
+  /**
+   * Layout Variations
+   */
+
+
+  /*----------  header  ----------*/
+
+
+  &.-header-fixed {
+    .#{$header} {
+      position: fixed;
+    }
+  }
+
+  &.-header-sticked-left {
+    .#{$header} {
+      left: 0;
+    }
+  }
+
+  &.-header-sticked-right {
+    .#{$header} {
+      right: 0;
+    }
+  }
+
+
+  /*----------  Sidebar  ----------*/
+
+
+  &.-sidebar-fixed {
+    .#{$sidebar} {
+      position: fixed;
+    }
+  }
+
+  &.-sidebar-sticked-top {
+    .#{$sidebar} {
+      top: 0;
+    }
+  }
+
+  &.-sidebar-sticked-bottom {
+    .#{$sidebar} {
+      bottom: 0;
+    }
+  }
+
+  &.-sidebar-collapsed {
+    padding-left: 0;
+
+    .#{$header} {
+      left: 0;
+    }
+
+    .#{$sidebar} {
+      left: -$sidebar-width;
+    }
+
+    .#{$footer} {
+      left: 0;
+    }
+  }
+
+
+  /*----------  Sidebar Secondary  ----------*/
+
+  &.-sidebar-secondary-fixed {
+    .#{$sidebar-secondary}  {
+      position: fixed;
+    }
+  }
+
+  &.-sidebar-secondary-sticked-top {
+    .#{$sidebar-secondary}  {
+      top: 0;
+    }
+  }
+
+  &.-sidebar-secondary-sticked-bottom {
+    .#{$sidebar-secondary}  {
+      bottom: 0;
+    }
+  }
+
+  &.-sidebar-secondary-collapsed {
+    padding-right: 0;
+
+
+    .#{$header} {
+      right: 0;
+    }
+
+    .#{$sidebar-secondary}  {
+      right: -$sidebar-secondary-width;
+    }
+
+    .#{$footer} {
+      right: 0;
+    }
+  }
+
+  /*----------  Sidebar Secondary  ----------*/
+
+  // Fixed footer
+  &.-footer-fixed {
+    .#{$footer} {
+      position: fixed;
+    }
+  }
+
+  &.-footer-sticked-left {
+    .#{$footer} {
+      left: 0;
+    }
+  }
+
+  &.-footer-sticked-right {
+    .#{$footer} {
+      right: 0;
+    }
+  }
+
+
+  /*----------  RTL  ----------*/
+
+
+  &.-rtl {
+    text-align: right;
+
+    .#{$sidebar} {
+      left: auto;
+      right: 0;
+    }
+
+    .#{$sidebar-secondary}  {
+      right: auto;
+      left: 0;
+    }
+
+    &.-sidebar-collapsed {
+      padding-right: 0;
+
+      .#{$sidebar} {
+        right: -$sidebar-width;
+      }
+    }
+
+    &.-sidebar-secondary-collapsed {
+      padding-left: 0;
+
+      .#{$sidebar-secondary}  {
+        left: -$sidebar-secondary-width;
+      }
+    }
+
+  }
+
+
+
+  /*----------  Animated  ----------*/
+  &.-animated {
+    transition:
+      opacity       $animation-duration $animation-timing-function,
+      padding-left  $animation-duration $animation-timing-function,
+      padding-right $animation-duration $animation-timing-function;
+
+    .#{$header},
+    .#{$sidebar},
+    .#{$sidebar-secondary},
+    .#{$footer} {
+      transition:
+        opacity   $animation-duration $animation-timing-function,
+        left      $animation-duration $animation-timing-function,
+        right     $animation-duration $animation-timing-function;
+    }
+
+  }
 }

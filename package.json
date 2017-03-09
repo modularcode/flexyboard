@@ -14,11 +14,11 @@
     "build:demo:sass": "node-sass -r demo/ -o demo/",
     "test": "echo \"Error: no test specified\" && exit 1",
 
-    "watch": "npm run watch:lib:sass",
+    "watch": "concurrently \"npm run watch:lib:sass\" \"npm run watch:demo:sass\"  ",
     "watch:lib:sass": "node-sass lib/flexyboard.scss dist/flexyboard.css -w lib/ -r",
     "watch:lib:js": "",
     "watch:lib:test": "",
-    "watch:demo": ""
+    "watch:demo:sass": "node-sass -r demo/ -o demo/ -w /"
   },
   "repository": {
     "type": "git",
