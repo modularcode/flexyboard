@@ -2,6 +2,7 @@
   position: absolute;
   width: 100%;
   min-height: 100%;
+  overflow-x: hidden;
   left: 0;
   top: 0;
   padding-top: 70px;
@@ -83,12 +84,12 @@
     top: 0; }
   .flexyboard.-sidebar-sticked-bottom .f-sidebar {
     bottom: 0; }
-  .flexyboard.-sidebar-sticked-content .f-header {
+  .flexyboard.-sidebar-sticked-content.-container-static .f-header {
     left: 0; }
-  .flexyboard.-sidebar-sticked-content .f-sidebar {
+  .flexyboard.-sidebar-sticked-content.-container-static .f-sidebar {
     top: 0;
     position: relative; }
-  .flexyboard.-sidebar-sticked-content .f-footer {
+  .flexyboard.-sidebar-sticked-content.-container-static .f-footer {
     left: 0; }
   .flexyboard.-sidebar-collapsed {
     padding-left: 0; }

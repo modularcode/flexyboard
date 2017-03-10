@@ -40,6 +40,7 @@ $fboard-animation-timing-function: ease !default;
   position: absolute;
   width: 100%;
   min-height: 100%;
+  overflow-x: hidden;
   left: 0;
   top: 0;
 
@@ -177,7 +178,8 @@ $fboard-animation-timing-function: ease !default;
     }
   }
 
-  &.-sidebar-sticked-content {
+  // Works only with static container
+  &.-sidebar-sticked-content.-container-static {
 
 
     .#{$header} {
@@ -236,7 +238,8 @@ $fboard-animation-timing-function: ease !default;
     }
   }
 
-  &.-sidebar-secondary-sticked-content {
+  // Works only with static container
+  &.-sidebar-secondary-sticked-content.-container-static {
     padding-right: 0;
 
     .#{$header} {

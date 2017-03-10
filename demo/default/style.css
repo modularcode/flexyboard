@@ -2,6 +2,7 @@
   position: absolute;
   width: 100%;
   min-height: 100%;
+  overflow-x: hidden;
   left: 0;
   top: 0;
   padding-top: 70px;
@@ -100,14 +101,14 @@
 .flexyboard.-sidebar-sticked-bottom .f-sidebar {
   bottom: 0; }
 
-.flexyboard.-sidebar-sticked-content .f-header {
+.flexyboard.-sidebar-sticked-content.-container-static .f-header {
   left: 0; }
 
-.flexyboard.-sidebar-sticked-content .f-sidebar {
+.flexyboard.-sidebar-sticked-content.-container-static .f-sidebar {
   top: 0;
   position: relative; }
 
-.flexyboard.-sidebar-sticked-content .f-footer {
+.flexyboard.-sidebar-sticked-content.-container-static .f-footer {
   left: 0; }
 
 .flexyboard.-sidebar-collapsed {
@@ -131,17 +132,17 @@
 .flexyboard.-sidebar-secondary-sticked-bottom .f-sidebar-secondary {
   bottom: 0; }
 
-.flexyboard.-sidebar-secondary-sticked-content {
+.flexyboard.-sidebar-secondary-sticked-content.-container-static {
   padding-right: 0; }
 
-.flexyboard.-sidebar-secondary-sticked-content .f-header {
+.flexyboard.-sidebar-secondary-sticked-content.-container-static .f-header {
   right: 0; }
 
-.flexyboard.-sidebar-secondary-sticked-content .f-sidebar-secondary {
+.flexyboard.-sidebar-secondary-sticked-content.-container-static .f-sidebar-secondary {
   top: 0;
   position: relative; }
 
-.flexyboard.-sidebar-secondary-sticked-content .f-footer {
+.flexyboard.-sidebar-secondary-sticked-content.-container-static .f-footer {
   right: 0; }
 
 .flexyboard.-sidebar-secondary-collapsed {
