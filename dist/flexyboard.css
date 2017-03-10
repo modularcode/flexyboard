@@ -4,14 +4,14 @@
   min-height: 100%;
   left: 0;
   top: 0;
-  padding-right: 230px;
-  padding-left: 230px;
+  padding-top: 70px;
+  padding-bottom: 50px;
   box-sizing: border-box;
   /**
    * Layout Variations
    */
   /*----------  header  ----------*/
-  /*----------  Content  ----------*/
+  /*----------  Container  --------*/
   /*----------  Sidebar  ----------*/
   /*----------  Sidebar Secondary  ----------*/
   /*----------  Sidebar Secondary  ----------*/
@@ -21,17 +21,25 @@
   .flexyboard .f-container > * {
     box-sizing: border-box; }
   .flexyboard .f-header {
+    position: absolute;
     top: 0;
     left: 230px;
     right: 230px;
     height: 70px;
     z-index: 20; }
+  .flexyboard .f-container {
+    margin: 0 auto;
+    padding-right: 230px;
+    padding-left: 230px;
+    max-width: 100%; }
   .flexyboard .f-content {
     width: 100%;
+    flex: 1;
     min-height: calc(100vh - 70px - 50px); }
   .flexyboard .f-sidebar {
     position: absolute;
     width: 230px;
+    flex-basis: 230px;
     top: 70px;
     left: 0;
     bottom: 50px;
@@ -39,11 +47,13 @@
   .flexyboard .f-sidebar-secondary {
     position: absolute;
     width: 230px;
+    flex-basis: 230px;
     top: 70px;
     right: 0;
     bottom: 50px;
     z-index: 15; }
   .flexyboard .f-footer {
+    position: absolute;
     bottom: 0;
     left: 230px;
     right: 230px;
@@ -57,29 +67,29 @@
     left: 0; }
   .flexyboard.-header-sticked-right .f-header {
     right: 0; }
-  .flexyboard.-content-static .f-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; }
-  .flexyboard.-content-static .f-content {
-    max-width: 980px; }
+  .flexyboard.-container-static {
+    padding-left: 230px;
+    padding-right: 230px; }
+    .flexyboard.-container-static .f-container {
+      padding-left: 0;
+      padding-right: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      max-width: 980px; }
   .flexyboard.-sidebar-fixed .f-sidebar {
     position: fixed; }
   .flexyboard.-sidebar-sticked-top .f-sidebar {
     top: 0; }
   .flexyboard.-sidebar-sticked-bottom .f-sidebar {
     bottom: 0; }
-  .flexyboard.-sidebar-sticked-content {
-    padding-left: 0; }
-    .flexyboard.-sidebar-sticked-content .f-header {
-      left: 0; }
-    .flexyboard.-sidebar-sticked-content .f-sidebar {
-      top: 0;
-      position: relative; }
-    .flexyboard.-sidebar-sticked-content .f-content {
-      max-width: 750px; }
-    .flexyboard.-sidebar-sticked-content .f-footer {
-      left: 0; }
+  .flexyboard.-sidebar-sticked-content .f-header {
+    left: 0; }
+  .flexyboard.-sidebar-sticked-content .f-sidebar {
+    top: 0;
+    position: relative; }
+  .flexyboard.-sidebar-sticked-content .f-footer {
+    left: 0; }
   .flexyboard.-sidebar-collapsed {
     padding-left: 0; }
     .flexyboard.-sidebar-collapsed .f-header {
@@ -101,12 +111,8 @@
     .flexyboard.-sidebar-secondary-sticked-content .f-sidebar-secondary {
       top: 0;
       position: relative; }
-    .flexyboard.-sidebar-secondary-sticked-content .f-content {
-      max-width: 750px; }
     .flexyboard.-sidebar-secondary-sticked-content .f-footer {
       right: 0; }
-  .flexyboard.-sidebar-sticked-content.-sidebar-secondary-sticked-content .f-content {
-    max-width: 520px; }
   .flexyboard.-sidebar-secondary-collapsed {
     padding-right: 0; }
     .flexyboard.-sidebar-secondary-collapsed .f-header {

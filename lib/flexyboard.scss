@@ -10,7 +10,7 @@ $fboard-footer-classname: 'f-footer' !default;
 $fboard-header-height: 70px !default;
 $fboard-sidebar-width: 230px !default;
 $fboard-sidebar-secondary-width: 230px !default;
-$fboard-content-static-width: 980px !default;
+$fboard-container-static-width: 980px !default;
 $fboard-footer-height: 50px !default;
 
 $fboard-animation-duration: .3s !default;
@@ -22,23 +22,20 @@ $fboard-animation-timing-function: ease !default;
   // We're in local scope an may use more
   // Readable variable names
   $header:            #{$fboard-header-classname};
-  $footer:            #{$fboard-footer-classname};
   $content:           #{$fboard-content-classname};
-  $container:           #{$fboard-container-classname};
+  $container:         #{$fboard-container-classname};
   $sidebar:           #{$fboard-sidebar-classname};
   $sidebar-secondary: #{$fboard-sidebar-secondary-classname};
+  $footer:            #{$fboard-footer-classname};
 
-  $header-height:           $fboard-header-height;
-  $sidebar-width:           $fboard-sidebar-width;
-  $sidebar-secondary-width: $fboard-sidebar-secondary-width;
-  $content-static-width:    $fboard-content-static-width;
-  $footer-height:           $fboard-footer-height;
+  $header-height:             $fboard-header-height;
+  $sidebar-width:             $fboard-sidebar-width;
+  $sidebar-secondary-width:   $fboard-sidebar-secondary-width;
+  $container-static-width:    $fboard-container-static-width;
+  $footer-height:             $fboard-footer-height;
 
   $animation-duration:        $fboard-animation-duration;
   $animation-timing-function: $fboard-animation-timing-function;
-
-
-
 
   position: absolute;
   width: 100%;
@@ -46,10 +43,8 @@ $fboard-animation-timing-function: ease !default;
   left: 0;
   top: 0;
 
-  // padding-top: $header-height;
-  padding-right: $sidebar-secondary-width;
-  // padding-bottom: $footer-height;
-  padding-left: $sidebar-width;
+  padding-top: $header-height;
+  padding-bottom: $footer-height;
 
   box-sizing: border-box;
 
@@ -59,7 +54,7 @@ $fboard-animation-timing-function: ease !default;
   }
 
   .#{$header} {
-    // position: absolute;
+    position: absolute;
     top: 0;
     left: $sidebar-width;
     right: $sidebar-secondary-width;
@@ -68,14 +63,23 @@ $fboard-animation-timing-function: ease !default;
     z-index: 20;
   }
 
+  .#{$container} {
+    margin: 0 auto;
+    padding-right: $sidebar-secondary-width;
+    padding-left: $sidebar-width;
+    max-width: 100%;
+  }
+
   .#{$content} {
     width: 100%;
+    flex: 1;
     min-height: calc(100vh - #{$header-height} - #{$footer-height});
   }
 
   .#{$sidebar} {
     position: absolute;
     width: $sidebar-width;
+    flex-basis: $sidebar-width;
     top: $header-height;
     left: 0;
     bottom: $footer-height;
@@ -86,6 +90,7 @@ $fboard-animation-timing-function: ease !default;
   .#{$sidebar-secondary}  {
     position: absolute;
     width: $sidebar-width;
+    flex-basis: $sidebar-secondary-width;
     top: $header-height;
     right: 0;
     bottom: $footer-height;
@@ -94,7 +99,7 @@ $fboard-animation-timing-function: ease !default;
   }
 
   .#{$footer} {
-    // position: absolute;
+    position: absolute;
     bottom: 0;
     left: $sidebar-width;
     right: $sidebar-secondary-width;
@@ -132,29 +137,21 @@ $fboard-animation-timing-function: ease !default;
     }
   }
 
+  /*----------  Container  --------*/
 
-  /*----------  Content  ----------*/
+  &.-container-static {
+    padding-left: $sidebar-width;
+    padding-right: $sidebar-secondary-width;
 
-  &.-content-static {
-    // padding-top: $header-height;
-    // padding-bottom: $footer-height;
 
     .#{$container} {
+      padding-left: 0;
+      padding-right: 0;
+
       display: flex;
       flex-direction: row;
       justify-content: center;
-    }
-
-    .#{$content} {
-      max-width: $content-static-width;
-    }
-
-    .#{$header} {
-      // position: absolute;
-    }
-
-    .#{$footer} {
-      // position: absolute;
+      max-width: $container-static-width;
     }
   }
 
@@ -181,7 +178,7 @@ $fboard-animation-timing-function: ease !default;
   }
 
   &.-sidebar-sticked-content {
-    padding-left: 0;
+
 
     .#{$header} {
       left: 0;
@@ -193,7 +190,7 @@ $fboard-animation-timing-function: ease !default;
     }
 
     .#{$content} {
-      max-width: $content-static-width - $sidebar-width;
+      // max-width: $content-static-width - $sidebar-width;
     }
 
     .#{$footer} {
@@ -252,7 +249,7 @@ $fboard-animation-timing-function: ease !default;
     }
 
     .#{$content} {
-      max-width: $content-static-width - $sidebar-secondary-width;
+      // max-width: $content-static-width - $sidebar-secondary-width;
     }
 
     .#{$footer} {
@@ -263,7 +260,7 @@ $fboard-animation-timing-function: ease !default;
 
   &.-sidebar-sticked-content.-sidebar-secondary-sticked-content {
     .#{$content} {
-      max-width: $content-static-width - $sidebar-width - $sidebar-secondary-width;
+      // max-width: $content-static-width - $sidebar-width - $sidebar-secondary-width;
     }
   }
 
