@@ -6,7 +6,7 @@
   "scripts": {
     "dev":    "concurrently \"npm run lib:dev\" \"npm run demo:dev\" \"npm run serve\"",
     "start":  "npm run dev",
-    "serve":  "static -i demo/default/index.html",
+    "serve":  "static -i demo/index.html",
 
     "lib:dev":        "concurrently \"npm run lib:build\" \"npm run lib:watch\"",
     "lib:test":       "echo \"Error: no test specified\" && exit 1",
