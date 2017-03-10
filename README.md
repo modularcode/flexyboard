@@ -18,6 +18,43 @@ We're creating this project as a base for creating configurable dashboard layout
 - Content can be fixed (e.g. bootstrap .container) or fluid
 - Scrollable (non-fixed) sidebars can be sticked to content
 
+## Install
+
+```
+npm i --save flexyboard
+```
+
+## Setup
+
+
+### Default Layout
+
+```
+<div class="flexyboard">
+  <div class="f-header">
+    {your header content}
+  </div>
+  <div class="f-container">
+    <aside class="f-sidebar">
+       {your sidebar content}
+    </div>
+    <div class="f-content">
+      {yout page content}
+    </div>
+    <div class="f-sidebar-secondary">
+      {yout secondary sidebar content}
+    </div>
+  </div>
+  <div class="f-footer">
+    {your footer content}
+  </div>
+</div>
+```
+
+## Customization
+
+ToDo
+
 
 ## ToDo
 
