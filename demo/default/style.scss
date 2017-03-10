@@ -1,7 +1,7 @@
 @import '../../lib/flexyboard.scss';
 
 
-.block {
+.demo-block {
   padding: 15px;
 }
 
@@ -14,11 +14,10 @@
 .flexyboard.demo {
   background-color: #d7dde4;
 
-  & > * {
-    @extend .block;
-  }
 
   .f-header {
+    @extend .demo-block;
+
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -27,11 +26,18 @@
   }
 
   .f-sidebar {
+    @extend .demo-block;
+
     background-color: #3a4651;
     color: #fff;
   }
 
   .f-content {
+  }
+
+  .page {
+    @extend .demo-block;
+
     p {
       margin-top: 0;
       margin-bottom: 25px;
@@ -40,16 +46,21 @@
     }
   }
 
+  .f-sidebar-secondary {
+    @extend .demo-block;
+
+    background-color: #9baabb;
+  }
+
+
   .f-footer {
+    @extend .demo-block;
+
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
     background-color: #fff;
-  }
-
-  .f-sidebar-secondary {
-    background-color: #9baabb;
   }
 
 

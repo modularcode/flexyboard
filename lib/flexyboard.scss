@@ -1,15 +1,17 @@
 // Flexyboard variables definition
 $fboard-classname: 'flexyboard' !default;
 $fboard-header-classname: 'f-header' !default;
-$fboard-footer-classname: 'f-footer' !default;
+$fboard-container-classname: 'f-container' !default;
 $fboard-content-classname: 'f-content' !default;
 $fboard-sidebar-classname: 'f-sidebar' !default;
 $fboard-sidebar-secondary-classname: 'f-sidebar-secondary' !default;
+$fboard-footer-classname: 'f-footer' !default;
 
 $fboard-header-height: 70px !default;
-$fboard-footer-height: 50px !default;
 $fboard-sidebar-width: 230px !default;
 $fboard-sidebar-secondary-width: 230px !default;
+$fboard-content-static-width: 980px !default;
+$fboard-footer-height: 50px !default;
 
 $fboard-animation-duration: .3s !default;
 $fboard-animation-timing-function: ease !default;
@@ -22,13 +24,15 @@ $fboard-animation-timing-function: ease !default;
   $header:            #{$fboard-header-classname};
   $footer:            #{$fboard-footer-classname};
   $content:           #{$fboard-content-classname};
+  $container:           #{$fboard-container-classname};
   $sidebar:           #{$fboard-sidebar-classname};
   $sidebar-secondary: #{$fboard-sidebar-secondary-classname};
 
   $header-height:           $fboard-header-height;
-  $footer-height:           $fboard-footer-height;
   $sidebar-width:           $fboard-sidebar-width;
   $sidebar-secondary-width: $fboard-sidebar-secondary-width;
+  $content-static-width:    $fboard-content-static-width;
+  $footer-height:           $fboard-footer-height;
 
   $animation-duration:        $fboard-animation-duration;
   $animation-timing-function: $fboard-animation-timing-function;
@@ -42,23 +46,26 @@ $fboard-animation-timing-function: ease !default;
   left: 0;
   top: 0;
 
-  padding-top: $header-height;
+  // padding-top: $header-height;
   padding-right: $sidebar-secondary-width;
-  padding-bottom: $footer-height;
+  // padding-bottom: $footer-height;
   padding-left: $sidebar-width;
 
   box-sizing: border-box;
 
-  & > * {
+  & > * ,
+  .#{$container} > * {
     box-sizing: border-box;
   }
 
   .#{$header} {
-    position: absolute;
+    // position: absolute;
     top: 0;
     left: $sidebar-width;
     right: $sidebar-secondary-width;
     height: $header-height;
+
+    z-index: 20;
   }
 
   .#{$content} {
@@ -72,6 +79,8 @@ $fboard-animation-timing-function: ease !default;
     top: $header-height;
     left: 0;
     bottom: $footer-height;
+
+    z-index: 10;
   }
 
   .#{$sidebar-secondary}  {
@@ -80,14 +89,18 @@ $fboard-animation-timing-function: ease !default;
     top: $header-height;
     right: 0;
     bottom: $footer-height;
+
+    z-index: 15;
   }
 
   .#{$footer} {
-    position: absolute;
+    // position: absolute;
     bottom: 0;
     left: $sidebar-width;
     right: $sidebar-secondary-width;
     height: $footer-height;
+
+    z-index: 20;
   }
 
 
@@ -100,6 +113,8 @@ $fboard-animation-timing-function: ease !default;
 
 
   &.-header-fixed {
+    padding-top: $header-height;
+
     .#{$header} {
       position: fixed;
     }
@@ -114,6 +129,32 @@ $fboard-animation-timing-function: ease !default;
   &.-header-sticked-right {
     .#{$header} {
       right: 0;
+    }
+  }
+
+
+  /*----------  Content  ----------*/
+
+  &.-content-static {
+    // padding-top: $header-height;
+    // padding-bottom: $footer-height;
+
+    .#{$container} {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .#{$content} {
+      max-width: $content-static-width;
+    }
+
+    .#{$header} {
+      // position: absolute;
+    }
+
+    .#{$footer} {
+      // position: absolute;
     }
   }
 
@@ -139,6 +180,27 @@ $fboard-animation-timing-function: ease !default;
     }
   }
 
+  &.-sidebar-sticked-content {
+    padding-left: 0;
+
+    .#{$header} {
+      left: 0;
+    }
+
+    .#{$sidebar} {
+      top: 0;
+      position: relative;
+    }
+
+    .#{$content} {
+      max-width: $content-static-width - $sidebar-width;
+    }
+
+    .#{$footer} {
+      left: 0;
+    }
+  }
+
   &.-sidebar-collapsed {
     padding-left: 0;
 
@@ -154,6 +216,7 @@ $fboard-animation-timing-function: ease !default;
       left: 0;
     }
   }
+
 
 
   /*----------  Sidebar Secondary  ----------*/
@@ -173,6 +236,34 @@ $fboard-animation-timing-function: ease !default;
   &.-sidebar-secondary-sticked-bottom {
     .#{$sidebar-secondary}  {
       bottom: 0;
+    }
+  }
+
+  &.-sidebar-secondary-sticked-content {
+    padding-right: 0;
+
+    .#{$header} {
+      right: 0;
+    }
+
+    .#{$sidebar-secondary} {
+      top: 0;
+      position: relative;
+    }
+
+    .#{$content} {
+      max-width: $content-static-width - $sidebar-secondary-width;
+    }
+
+    .#{$footer} {
+      right: 0;
+    }
+  }
+
+
+  &.-sidebar-sticked-content.-sidebar-secondary-sticked-content {
+    .#{$content} {
+      max-width: $content-static-width - $sidebar-width - $sidebar-secondary-width;
     }
   }
 
@@ -197,6 +288,8 @@ $fboard-animation-timing-function: ease !default;
 
   // Fixed footer
   &.-footer-fixed {
+    padding-bottom: $footer-height;
+
     .#{$footer} {
       position: fixed;
     }
@@ -230,6 +323,10 @@ $fboard-animation-timing-function: ease !default;
       right: 0;
     }
 
+    .#{$container} {
+      flex-direction: row-reverse;
+    }
+
     .#{$sidebar-secondary}  {
       right: auto;
       left: 0;
@@ -239,6 +336,28 @@ $fboard-animation-timing-function: ease !default;
 
     }
 
+
+    &.-sidebar-sticked-content {
+      padding-right: 0;
+
+      .#{$header} {
+        right: 0;
+      }
+      .#{$footer} {
+        right: 0;
+      }
+    }
+
+    &.-sidebar-secondary-sticked-content {
+      padding-right: 0;
+
+      .#{$header} {
+        right: 0;
+      }
+      .#{$footer} {
+        right: 0;
+      }
+    }
 
     &.-sidebar-collapsed {
       padding-right: 0;
@@ -269,12 +388,14 @@ $fboard-animation-timing-function: ease !default;
 
     .#{$header},
     .#{$sidebar},
+    .#{$content},
     .#{$sidebar-secondary},
     .#{$footer} {
       transition:
         opacity   $animation-duration $animation-timing-function,
         left      $animation-duration $animation-timing-function,
-        right     $animation-duration $animation-timing-function;
+        right     $animation-duration $animation-timing-function,
+        width     $animation-duration $animation-timing-function;
     }
 
   }
