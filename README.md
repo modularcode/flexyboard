@@ -1,6 +1,8 @@
 # flexyboard (in development)
 > Super-flexible admin dashboard skeleton layout with Multisidebar, Fixed or scrollable Sidebar/Footer/Header, RTL, support
 
+This project is under heavy debelopment, please don't use it in production.
+
 Creating a highly customizable layout is really tricky. 
 We're creating this project as a base for creating configurable dashboard layouts.
 
@@ -53,8 +55,24 @@ npm i --save flexyboard
 
 ## Customization
 
-ToDo
+### CSS customization
+If you're using the css version of flexyboard, to customize elements dimensions (header/footeer heights, sidebars' widths ) You need to overwrite css styles.
+```
+.flexyboard.f-header {   
+  height: [header_height_value];
+}
 
+.flexyboard {
+  padding-top: [header_height_value];
+ }
+.flexyboard.f-footer {   
+  height: [footer_height_value];
+}
+.flexyboard {
+  padding-bottom: [footer_height_value];
+ }
+```
+### SASS customization
 
 ## ToDo
 
